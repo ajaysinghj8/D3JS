@@ -84,8 +84,14 @@
         .duration(1000)
         .ease('elastic')
 
+
+    var vGuideScale = d3.scale.linear()
+        .domain([0, d3.max(bardata)])
+        .range([height,0])
+
+
     var vAxis = d3.svg.axis()
-        .scale(yScale)
+        .scale(vGuideScale)
         .orient('left') //left, right top, bottom
         .ticks(10)
     var vGuide = d3.select('svg').append('g')
@@ -96,7 +102,9 @@
             fill: 'none',
             stroke: '#000'
         })
-   vGuide.selectAll('line')
-     .style({stroke: '#000'})
+    vGuide.selectAll('line')
+        .style({
+            stroke: '#000'
+        })
 
 })(window.d3);
