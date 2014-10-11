@@ -1,13 +1,15 @@
 (function(d3) {
 
-    var bardata = [20, 30, 20, 150, 200, 250, 140, 20, 30, 20, 150, 200, 250, 140];
-
+    var bardata = [];
+     for (var i =0; i <100; i++) {
+        bardata.push(Math.random()*30)
+     };
     var height = 400,
         width = 600;
 
     var colors = d3.scale.linear()
-        .domain([0,bardata.length*.33, bardata.length*.66, bardata.length])
-        .range(['#FFB832', '#C61C6F','#268BD@','#85992']);
+        .domain([0, bardata.length * .33, bardata.length * .66, bardata.length])
+        .range(['#FFB832', '#C61C6F', '#268BD@', '#85992']);
     // calculating heights for barchat maximum hegiht(400) will be apllied to maximum value
     var yScale = d3.scale.linear()
         .domain([0, d3.max(bardata)])
@@ -19,11 +21,11 @@
     d3.select('#chart').append('svg')
         .attr('width', width)
         .attr('height', height)
-        .style('background', '#C9D7D6')
+//        .style('background', '#C9D7D6')
         .selectAll('rect').data(bardata)
         .enter().append('rect')
         .style('fill', function(d, i) {
-          return colors(i);
+            return colors(i);
         })
         .attr('width', xScale.rangeBand())
         .attr('height', function(d) {
