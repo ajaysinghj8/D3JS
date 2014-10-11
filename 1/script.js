@@ -2,11 +2,11 @@
 
     var bardata = [];
     for (var i = 0; i < 30; i++) {
-        bardata.push(Math.round(Math.random() * 30)+20);
+        bardata.push(Math.round(Math.random() * 30) + 20);
     };
 
-    bardata.sort(function   compareNumbers(a,b ) {
-        return a-b;
+    bardata.sort(function compareNumbers(a, b) {
+        return a - b;
     })
 
     var height = 400,
@@ -83,5 +83,20 @@
         })
         .duration(1000)
         .ease('elastic')
+
+    var vAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient('left') //left, right top, bottom
+        .ticks(10)
+    var vGuide = d3.select('svg').append('g')
+    vAxis(vGuide)
+    vGuide.attr('transform', 'translate(35,10)')
+    vGuide.selectAll('path')
+        .style({
+            fill: 'none',
+            stroke: '#000'
+        })
+   vGuide.selectAll('line')
+     .style({stroke: '#000'})
 
 })(window.d3);
