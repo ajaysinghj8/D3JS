@@ -4,6 +4,11 @@
     for (var i = 0; i < 30; i++) {
         bardata.push(Math.round(Math.random() * 30)+20);
     };
+
+    bardata.sort(function   compareNumbers(a,b ) {
+        return a-b;
+    })
+
     var height = 400,
         width = 600;
     var tempcolor;
