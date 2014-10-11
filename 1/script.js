@@ -1,7 +1,7 @@
 (function(d3) {
 
     var bardata = [];
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 10; i++) {
         bardata.push(Math.round(Math.random() * 30) + 20);
     };
 
@@ -29,7 +29,7 @@
     // Dynamic x scale for n valuse calculated automatically
     var xScale = d3.scale.ordinal()
         .domain(d3.range(0, bardata.length))
-        .rangeBands([0, width]);
+        .rangeBands([0, width], 0.02);
 
     var tooltip = d3.select('body').append('div')
         .style('position', 'absolute')
