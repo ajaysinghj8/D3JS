@@ -33,6 +33,7 @@
     var mychart = d3.select('#chart').append('svg')
         .attr('width', width)
         .attr('height', height)
+        .append('g')
         //        .style('background', '#C9D7D6')
         .selectAll('rect').data(bardata)
         .enter().append('rect')
