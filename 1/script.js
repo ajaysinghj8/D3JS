@@ -50,12 +50,18 @@
     })
 
     mychart.transition()
-        .delay(500)
-        .duration(3000)
+        //.delay(500)
+        //.duration(2500)
         .attr('height', function(d) {
             return yScale(d);
         })
         .attr('y', function(d) {
             return height - yScale(d);
         })
+        .delay(function(d, i) {
+            return i * 10;
+        })
+        .duration(1000)
+        .ease('elastic')
+
 })(window.d3);
