@@ -1,7 +1,7 @@
 (function(d3) {
 
     var bardata = [];
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 50; i++) {
         bardata.push(Math.round(Math.random() * 30) + 20);
     };
 
@@ -87,7 +87,7 @@
 
     var vGuideScale = d3.scale.linear()
         .domain([0, d3.max(bardata)])
-        .range([height,0])
+        .range([height, 0])
 
 
     var vAxis = d3.svg.axis()
@@ -103,6 +103,25 @@
             stroke: '#000'
         })
     vGuide.selectAll('line')
+        .style({
+            stroke: '#000'
+        })
+
+    var hAxis = d3.svg.axis()
+        .scale(xScale)
+        .orient('bottom')
+        .tickValues(xScale.domain().filter(function(d,i) {
+            return !(i % (bardata.length/10));
+        }))
+    var hGuide = d3.select('svg').append('g')
+    hAxis(hGuide)
+    hGuide.attr('transform', 'translate(0,' + (height - 30) + ')')
+    hGuide.selectAll('path')
+        .style({
+            fill: 'none',
+            stroke: '#000'
+        })
+    hGuide.selectAll('line')
         .style({
             stroke: '#000'
         })
