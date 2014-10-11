@@ -9,8 +9,15 @@
         return a - b;
     })
 
-    var height = 400,
-        width = 600;
+    var margin = {
+        top: 30,
+        right: 30,
+        bottom: 40,
+        left: 50
+    };
+
+    var height = 400 - margin.top - margin.bottom,
+        width = 600 - margin.left - margin.right;
     var tempcolor;
     var colors = d3.scale.linear()
         .domain([0, bardata.length * .33, bardata.length * .66, bardata.length])
@@ -31,10 +38,11 @@
         .style('opacity', 0)
 
     var mychart = d3.select('#chart').append('svg')
-        .attr('width', width)
-        .attr('height', height)
+        .style('background', '#E7E0CB')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
         .append('g')
-        //        .style('background', '#C9D7D6')
+        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
         .selectAll('rect').data(bardata)
         .enter().append('rect')
         .style('fill', function(d, i) {
@@ -96,7 +104,7 @@
         .ticks(10)
     var vGuide = d3.select('svg').append('g')
     vAxis(vGuide)
-    vGuide.attr('transform', 'translate(35,10)')
+    vGuide.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
     vGuide.selectAll('path')
         .style({
             fill: 'none',
@@ -110,12 +118,12 @@
     var hAxis = d3.svg.axis()
         .scale(xScale)
         .orient('bottom')
-        .tickValues(xScale.domain().filter(function(d,i) {
-            return !(i % (bardata.length/10));
+        .tickValues(xScale.domain().filter(function(d, i) {
+            return !(i % (bardata.length / 10));
         }))
     var hGuide = d3.select('svg').append('g')
     hAxis(hGuide)
-    hGuide.attr('transform', 'translate(0,' + (height - 30) + ')')
+    hGuide.attr('transform', 'translate(' + margin.left + ',' + (height + margin.top) + ')')
     hGuide.selectAll('path')
         .style({
             fill: 'none',
