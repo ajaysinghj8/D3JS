@@ -6,7 +6,7 @@
     };
     var height = 400,
         width = 600;
-var tempcolor;
+    var tempcolor;
     var colors = d3.scale.linear()
         .domain([0, bardata.length * .33, bardata.length * .66, bardata.length])
         .range(['#FFB832', '#C61C6F', '#268BD@', '#85992']);
@@ -41,14 +41,16 @@ var tempcolor;
         .on('mouseover', function(d) {
             tempcolor = this.style.fill;
             d3.select(this)
-            .style('opacity',0.5)
-            .style('fill','Whiite')
+                .transition()
+                .style('opacity', 0.5)
+                .style('fill', 'Whiite')
         })
 
-        .on('mouseout', function(d) {
-            d3.select(this)
-            .style('opacity',1)
+    .on('mouseout', function(d) {
+        d3.select(this)
+            .transition().delay(500).duration(800)
+            .style('opacity', 1)
             .style('fill', tempcolor);
-        })
+    })
 
 })(window.d3);
