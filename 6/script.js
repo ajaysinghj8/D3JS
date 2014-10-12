@@ -2,13 +2,12 @@
 
     d3.select('body')
         .append('svg')
-        .attr('width', 100)
-        .attr('height', 100)
-        .append('circle')
-        .attr('cx', 50)
-        .attr('cy', 50)
-        .attr('r', 25)
-        .style('fill', 'pink');
-
+        .attr('width', 250)
+        .attr('height', 50)
+        .append('text')
+        .text('Ajay Singh')
+        .attr('x',30)
+        .attr('y',20)
+        .style('fill','blue');
 
 })(window.d3);
