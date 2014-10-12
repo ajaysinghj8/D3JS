@@ -24,7 +24,7 @@
     var links = [];
     for (var i = 0; i < nodes.length; i++) {
         if (nodes[i].target !== undefined) {
-            for (var x = 0; x < nodes[i].target.length; i++) {
+            for (var x = 0; x < nodes[i].target.length; x++) {
                 links.push({
                     source: nodes[i],
                     target: nodes[i].target[x]
