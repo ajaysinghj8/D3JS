@@ -1,4 +1,4 @@
-STATE/UT,YEAR,GENDER,Upto 10 years,10-15 years,15-18 years,18-30 years,30-50 years,Above 50 years,Total
+STATE,YEAR,GENDER,Upto 10 years,10-15 years,15-18 years,18-30 years,30-50 years,Above 50 years,Total
 Andhra Pradesh,2013,Male,26,9,19,445,1036,199,1734
 Andhra Pradesh,2013,Female,20,9,11,287,300,123,750
 Andhra Pradesh,2013,Total,46,18,30,732,1336,322,2484

@@ -1,24 +1,25 @@
 (function(d3) {
-    var w = 400,
-        h = 400,
+    var w = 1000,
+        h = 700,
         circleWidth = 5;
 
     var nodes = [{
-        name: 'Parent'
+        name: 'JavaScript'
     }, {
-        name: 'child1'
-    }, {
-        name: 'child2',
+        name: 'Angular',
         target: [0]
     }, {
-        name: 'child3',
+        name: 'Backbone',
         target: [0]
     }, {
-        name: 'child4',
-        target: [1]
+        name: 'Jquery',
+        target: [0]
     }, {
-        name: 'child5',
-        target: [0, 1, 2, 3]
+        name: 'asm.js',
+        target: [0]
+    }, {
+        name: 'Python',
+        target: [0]
     }];
 
     var links = [];
