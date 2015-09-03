@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>D3 js</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="/bower_components/d3/d3.js"></script>
+    <!-- jQuery -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+
+</head>
+
+<body>
+    <style>
+    @import url(//typeface.nytimes.com/k/hqf5ydk-d.css);
+    .g-graphic {
+        position: relative;
+        font-family: "nyt-franklin-1", sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        height: 1500px;
+    }
+    .g-fallback {
+        height: 1500px;
+    }
+    .g-fallback img {
+        position: absolute;
+        z-index: 0;
+    }
+    .g-graphic svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .g-tooltip {
+        color: #fff;
+        position: absolute;
+        white-space: nowrap;
+        -webkit-font-smoothing: antialiased;
+    }
+    .g-actor {
+        color: #98c1de;
+    }
+    .g-producer {
+        color: #a1d2c6;
+    }
+    .g-director {
+        color: #bea0cc;
+    }
+    .g-undefined {
+        color: #cbcbcb;
+    }
+    .g-tooltip .g-name {
+        font-weight: bold;
+    }
+    .g-tooltip-path {
+        fill: #000;
+        fill-opacity: .7;
+    }
+    .g-key {
+        position: absolute;
+        line-height: 14px;
+        width: 170px;
+    }
+    .g-note {
+        font-size: 13px;
+        line-height: 16px;
+        position: absolute;
+        width: 190px;
+    }
+    .g-key-hed,
+    .g-note-hed {
+        font-weight: 700;
+        margin-bottom: 3px;
+    }
+    .g-key-arrow {
+        position: absolute;
+        border-top: dashed 1px #333;
+        border-left: dashed 1px #333;
+    }
+    .g-note-hed {
+        text-transform: uppercase;
+    }
+    .g-note-body {
+        color: #666;
+        font-weight: 300;
+    }
+    .g-person-dots {
+        fill: #fff;
+    }
+    .g-person-dots circle.g-active {
+        stroke: #000 !important;
+    }
+    .g-halo {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2px;
+    }
+    .g-person-labels,
+    .g-movie-labels {
+        text-anchor: middle;
+    }
+    .g-person-labels {
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .g-movie-labels text {
+        fill: #999;
+        font-weight: 300;
+    }
+    .g-movie-labels text.g-current-best-picture-nomination {
+        fill: #000;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .g-person-hulls {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 17px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+    .g-movie-links {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1.5px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+    .g-movie-links.g-active {
+        stroke: #000;
+    }
+    .g-movie-dots circle {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 2px;
+    }
+    .g-movie-dots circle.g-current-nomination {
+        stroke: #bbb;
+        stroke-width: 1.5px;
+    }
+    .g-movie-dots circle.g-win {
+        fill: #aaa;
+    }
+    .g-movie-dots circle.g-active {
+        fill: #000;
+    }
+    .g-voronoi {
+        fill: none;
+        pointer-events: all;
+    }
+    .g-person-target {
+        fill: none;
+        pointer-events: all;
+    }
+    .storyHeader h1 {
+        font-family: 'nyt-cheltenham-hinted-1', 'nyt-cheltenham-hinted-2', Georgia;
+        font-weight: 500;
+        font-size: 28px !important;
+        width: 360px;
+        position: relative;
+        z-index: 1000;
+    }
+    .storySummary {
+        font-family: "nyt-franklin-1";
+        font-weight: 500;
+        color: #444;
+        width: 320px;
+        margin-bottom: -120px;
+        position: relative;
+        z-index: 1000;
+    }
+    .ledeStory > .module {
+        position: relative;
+    }
+    .shareTools {
+        position: absolute;
+        top: 160px;
+        z-index: 1000;
+    }
+    .shareTools .shareToolsItemGoogle {
+        display: none;
+    }
+    </style>
+    <div class="container-fluid">
+        <div class="row">
+            <h2 class="text-center">Srijan Members</h2>
+            <section id="chart" class="">
+                <div class="g-graphic">
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

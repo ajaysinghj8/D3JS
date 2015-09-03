@@ -1,0 +1,61 @@
+ svg {
+     background-color: gray;
+ }
+ /* #wing {
+     fill: #81CCAA;
+ }
+
+ #body {
+     fill: #B1E4C2;
+ }
+*/
+
+ #pupil {
+     fill: #1F2600;
+ }
+
+ #beak {
+     fill: #F69C0D;
+ }
+
+ .eye-ball {
+     fill: #F6FDC4;
+ }
+
+ @keyframes blink {
+     0% {
+         fill: green;
+     }
+     50% {
+         fill: yellow;
+     }
+     100% {
+         fill: red;
+     }
+ }
+
+ @-webkit-keyframes blink {
+     0% {
+         fill: green;
+     }
+     50% {
+         fill: yellow;
+     }
+     100% {
+         fill: red;
+     }
+ }
+
+ .blink {
+     -webkit-animation: blink 0.3s linear infinite;
+     -moz-animation: blink 0.3s linear infinite;
+     animation: blink 0.3s linear infinite;
+ }
+
+ #leaves {
+     fill: #8CC63F;
+ }
+
+ #bark {
+     fill: #A27729;
+ }

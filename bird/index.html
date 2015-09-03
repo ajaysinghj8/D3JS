@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>D3 js</title>
+    <!-- Bootstrap CSS -->
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="/bower_components/d3/d3.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <button id="btn-stop-start">Start/Stop</button>
+        <div class="row">
+            <section id="chart">
+            </section>
+        </div>
+    </div>
+    <div style="display:none" id="trees">
+        <svg>
+            <g id="tree">
+                <path id="bark" d="M91.33,165.51c0,0,4.18-27.65,1.73-35.82l-18.55-25.03l3.01-2.74l17.45,19.87l1.91-37.6h4.44l1.83,24.53
+        l15.26-16.35l3.27,4.36l-16.07,19.34c0,0-2.72,0-1.09,19.34c1.63,19.34,3,29.7,3,29.7L91.33,165.51z" />
+                <g id="leaves">
+                    <path class="leaf" d="M96.97,79.07c0,0-14.92,4.34-23.52-14.05c0,0,19.4-7.98,24.37,11.9c0,0-9.68-3.57-13.07-6.73
+                C84.75,70.2,91.82,77.99,96.97,79.07z" />
+                    <path class="leaf" d="M74.07,100.91c0,0-15.94-1.51-17.2-22.39c0,0,21.62-0.27,18.83,20.66c0,0-7.92-7.1-9.97-11.41
+                C65.73,87.77,69.55,97.92,74.07,100.91z" />
+                    <!-- ... -->
+                </g>
+            </g>
+            <use xlink:href="#tree" x="50" y="100" />
+            <use xlink:href="#tree" x="200" y="100" />
+            <use xlink:href="#tree" x="350" y="100" />
+        </svg>
+    </div>
+    <!-- jQuery -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
